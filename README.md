@@ -1,5 +1,37 @@
 # React Props and State Lab
 
+
+TODO::::
+App
+The app's initial state is already defined.
+App has two children--> <Filters /> and <PetBrowser /> components.
+App functions:
+- onChangeType, to <Filters />
+
+States:
+- state.filters.type
+
+Filters functions:
+- onFindPetsClick --> <App /> should fetch a list of pets using fetch()
+
+URL: /api/pets
+- with an optional query parameter
+- Use app's state.filters to control/update this parameter
+
+Notes:
+If the type is 'all', url = /api/pets
+If the type is 'cat', url = /api/pets?type=cat
+If the type is 'dog', url = /api/pets?type=dog
+If the type is 'micropig', url = /api/pets?type=micropig
+
+The pet data received should include information on individual pets and their adoption status.
+
+Finally set <App/>'s state.pets with the results of your fetch request so you can pass the pet data down as props to <PetBrowser />
+Even though we're using fetch here, its responses have been mocked in order to make the tests work properly. That means it's important to use the exact URLs as described above, or your tests will fail!
+
+
+
+
 ## Overview
 
 You'll build a small React application where you'll update state in response to
