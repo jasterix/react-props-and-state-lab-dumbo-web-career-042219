@@ -9,6 +9,7 @@ class App extends React.Component {
     filters: {
       type: 'all'
     }
+
   }
 
   componentDidMount() {
@@ -40,22 +41,27 @@ class App extends React.Component {
   onChangeType =(e) => {
 
   let type = e.target.value;
-  let filteredPets = this.handleFilter(type)
-
-    this.setState({pets:filteredPets})
+  const filterOption = { type: type }
+  // let filteredPets = this.handleFilter(type)
+    this.setState({ filters: filterOption })
 
   }
 
-  handleFilter = (type) => {
-    let filteredPets = this.state.pets.filter(pet=> {
-      return pet.type === type
-    })
-    return filteredPets
-    console.log(filteredPets);
-  }
+  // handleFilter = (type) => {
+  //   let filteredPets = this.state.pets.filter(pet=> {
+  //     return pet.type === type
+  //   })
+  //   return filteredPets
+  //   console.log(filteredPets);
+  // }
 
   render() {
-
+    let filteredPets = this.state.pets
+    if (this.state.filters.type !== "all") {
+      filteredPets = this.state.pets.filter(pet=> {
+        return pet.type === this.state.filters.type
+      })
+    }
     return (
       <div className="ui container">
         <header>
@@ -74,7 +80,7 @@ class App extends React.Component {
             <div className="twelve wide column">
 
 
-              <PetBrowser pets={this.state.pets} />
+              <PetBrowser pets={filteredPets} />
 
 
             </div>

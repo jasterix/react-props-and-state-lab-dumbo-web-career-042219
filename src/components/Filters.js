@@ -16,10 +16,10 @@ class Filters extends React.Component {
 
         </div>
 
-        <div className="field">
-          <button onClick={this.props.onChange} className="ui secondary button">Find pets</button>
-        </div>
-      </div>
+      //   <div className="field">
+      //     <button onClick={this.props.onChange} className="ui secondary button">Find pets</button>
+      //   </div>
+      // </div>
     )
   }
 }
