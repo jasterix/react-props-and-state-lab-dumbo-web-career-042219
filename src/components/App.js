@@ -5,7 +5,6 @@ import PetBrowser from './PetBrowser'
 
 class App extends React.Component {
   state = {
-    allPets: [],
     pets: [],
     filters: {
       type: 'all'
@@ -32,33 +31,27 @@ class App extends React.Component {
       fetch(url)
       .then(res => res.json())
       .then(data => {
-        this.setState({pets:data, allPets: data})
+        this.setState({pets:data})
 
       })
     }
 
 
   onChangeType =(e) => {
-    this.setState({pets: this.state.allPets})
-    console.log(this.state.pets)
 
-    let type = e.target.value;
-    let filteredPets = this.handleFilter(type)
+  let type = e.target.value;
+  let filteredPets = this.handleFilter(type)
 
     this.setState({pets:filteredPets})
+
   }
 
   handleFilter = (type) => {
-
     let filteredPets = this.state.pets.filter(pet=> {
       return pet.type === type
     })
     return filteredPets
     console.log(filteredPets);
-  }
-
-  getAll = () => {
-    let allPets = this.state.allPets
   }
 
   render() {
